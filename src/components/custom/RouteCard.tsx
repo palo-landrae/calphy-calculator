@@ -33,14 +33,16 @@ export default function RouteCard({ ...props }: Props) {
     return <Skeleton className="flex rounded-lg" />;
   }
   return (
-    <Card>
+    <Card className="flex w-full flex-col min-w-sm">
       <CardHeader>
         <CardTitle>{props.title}</CardTitle>
         <CardDescription>
           <BlockMath math={props.formula} />
         </CardDescription>
       </CardHeader>
-      <CardContent>{props.content}</CardContent>
+      <CardContent className="flex w-full sm:line-clamp">
+        {props.content}
+      </CardContent>
       <CardFooter className="justify-end">
         <Link href={props.href}>
           <Button variant="link">Read more</Button>
